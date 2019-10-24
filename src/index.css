@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+span {
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+}
+
+.menu {
+  background-color: black;
+  height: 100vh;
+  padding-top: 25px;
+  width: 20%;
+}
+
+.content {
+  width: 80%;
+}
+
+.menu__link {
+  border-radius: 2.5px;
+  display: block;
+  color: white;
+  padding: 10px; 
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.menu__link--active {
+  border: 2px solid #35a800;
+}
+
+.task {
+  box-shadow: 2px 2px 25px #00000041;
+  box-sizing: border-box;
+  border-radius: 15px;
+  margin: 1.5%;
+  width: 30%;
+  float: left;
+}
+
+.task__header {
+  background-color: #dcdcdc;
+  border-radius: 15px 15px 0 0 ;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  width: 30px;
+}
+
+.task__content {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+    "desc desc"
+    "dealine created";
+}
+
+.task__desc-container {
+  grid-area: desc;
+}
+
+.task__container-dealine {
+  grid-area: dealine;
+}
+
+.task__container-created {
+  grid-area: created;
+}
+
+
+.form {
+  padding: 20px 10px;
+}
+
+.form__item {
+  padding: 10px 0;
+}
+
+.form label {
+  display: block;
+}
+
+.form input, .form textarea {
+  width: 100%;
+}
+
+.form textarea {
+  height: 150px;
+}
+
+.form__submit input {
+  box-sizing: border-box;
+  width: auto;
+  background-color: #35a800;
+  border: none;
+  padding: 5px;
+  border-radius: 2.5px;
+  transition: 0.5s;
+}
+
+.form__submit input:hover {
+  background-color: transparent;
+  border: 2px solid #35a800;
+  transition: 0.5s;
+}
