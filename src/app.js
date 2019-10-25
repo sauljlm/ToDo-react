@@ -23,9 +23,9 @@ class App extends React.Component {
 			created: data.created,
 			pending: false
 		}
-		this.setState(state => {
-      state.tasks.push(newObject);
-		});
+		const currentTasks = this.state.tasks;
+		currentTasks.push(newObject)
+		this.setState({task: currentTasks});
 	}
 
 	renderTask(data) {
@@ -42,15 +42,15 @@ class App extends React.Component {
 	}
 
 	changePending(index) {
-		this.setState(() => {
-			this.state.tasks[index].pending = !this.state.tasks[index].pending
-		});
+		const currentTasks = this.state.tasks;
+		currentTasks[index].pending = !currentTasks[index].pending
+		this.setState({task: currentTasks});
 	}
 
 	deleteTask(index) {
-		this.setState(() => {
-			this.state.tasks.splice(index, 1)
-		});
+		const currentTasks = this.state.tasks;
+		currentTasks.splice(index, 1)
+		this.setState({task: currentTasks});
 	}
 
 	renderModal(emptyForm) {

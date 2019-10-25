@@ -11,6 +11,11 @@ span {
   font-weight: 600;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+}
+
 .container {
   display: flex;
 }
@@ -34,10 +39,16 @@ span {
   padding: 10px; 
   margin: 0 10px;
   text-decoration: none;
+  width: 90%;
+}
+
+.menu__link:focus {
+  outline:0;
 }
 
 .menu__link--active {
   border: 2px solid #35a800;
+  padding: 8px; 
 }
 
 .task {
@@ -58,8 +69,6 @@ span {
 }
 
 .task button {
-  background-color: transparent;
-  border: none;
   font-size: 20px;
   width: 30px;
 }

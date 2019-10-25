@@ -16,32 +16,32 @@ class Menu extends React.Component  {
 			<div className="menu">
         <ul className="menu__cont">
           <li>
-						<a
+						<button
 						onClick={() => this.changeView('newTask')} 
 						className={this.props.view === "newTask" ? 'menu__link menu__link--active' : 'menu__link'} 
-						href="#">Create new task
-						</a>
+						>Create new task
+						</button>
 					</li>
           <li>
-						<a 
+						<button 
 						onClick={() => this.changeView('allTask')} 
 						className={this.props.view === "allTask" ? 'menu__link menu__link--active' : 'menu__link'}  
-						href="#">All tasks
-						</a>
+						>All tasks
+						</button>
 					</li>
           <li>
-						<a 
+						<button 
 						onClick={() => this.changeView('pendingTask')} 
 						className={this.props.view === "pendingTask" ? 'menu__link menu__link--active' : 'menu__link'} 
-						href="#">Pending tasks
-						</a>
+						>Pending tasks
+						</button>
 					</li>
           <li>
-						<a 
+						<button 
 						onClick={() => this.changeView('completedTask')} 
 						className={this.props.view === "completedTask" ? 'menu__link menu__link--active' : 'menu__link'} 
-						href="#">Completed tasks
-						</a>
+						>Completed tasks
+						</button>
 					</li>
         </ul>
       </div>
