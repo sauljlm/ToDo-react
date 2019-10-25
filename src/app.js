@@ -2,6 +2,7 @@ import React from 'react';
 import Task from './components/task';
 import Menu from './components/menu';
 import Form from './components/form';
+import Modal from './components/modal';
 
 class App extends React.Component {
 	constructor(props) {
@@ -9,6 +10,7 @@ class App extends React.Component {
 
 		this.state = {
 			view : "newTask",
+			modal: null,
 			tasks: []
 		}
 	}
@@ -51,9 +53,22 @@ class App extends React.Component {
 		});
 	}
 
+	renderModal(emptyForm) {
+		this.setState({
+			modal: <Modal hideModal={this.hideModal.bind(this)} addNewTask={emptyForm()} changeView={this.changeView.bind(this)}/>
+		});
+	}
+
+	hideModal() {
+		this.setState({
+			modal: null
+		});
+	}
+
 	renderForm() {
 		return (
 			<Form 
+				renderModal={this.renderModal.bind(this)}
 				newTask={this.newTask.bind(this)}
 			/>
 		)
@@ -138,11 +153,13 @@ class App extends React.Component {
 
 	render() {
 		const content = this.getActiveView();
+		const modal = this.state.modal;
 
 		return (
 			<div className="container">
-				<Menu changeView={this.changeView.bind(this)}/>
+				<Menu view={this.state.view} changeView={this.changeView.bind(this)}/>
 				<div className="content">{content}</div>
+				<div className={this.state.modal ? 'modal-container' : ''} >{modal}</div>
 			</div>
 		);
 	}

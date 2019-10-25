@@ -24,7 +24,14 @@ class Form extends React.Component  {
 		} else if (event.target.name === "created") {
 			this.setState({created: event.target.value});
 		}
-  }
+	}
+	
+	emptyForm() {
+		this.setState({title: ""});
+		this.setState({description: ""});
+		this.setState({deadline: ""});
+		this.setState({created: ""});
+	}
 
   handleSubmit(event) {
 		event.preventDefault();
@@ -34,6 +41,7 @@ class Form extends React.Component  {
 			deadline: this.state.deadline, 
 			created: this.state.created
 		});
+		this.props.renderModal(() => this.emptyForm.bind(this));
   }
 
   render() {
