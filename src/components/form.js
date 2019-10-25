@@ -4,10 +4,12 @@ class Form extends React.Component  {
 	constructor(props) {
     super(props);
     this.state = {
-			title: null,
-			description: null,
-			deadline: null,
-			created: null,
+			newTodo : {
+				title: null,
+				description: null,
+				deadline: null,
+				created: null,
+			}
 		};
 
     this.handleChange = this.handleChange.bind(this);
@@ -15,17 +17,15 @@ class Form extends React.Component  {
 	}
 
   handleChange(event) {
-		if (event.target.name === "title") {
-			this.setState({title: event.target.value});
-		} else if (event.target.name === "description") {
-			this.setState({description: event.target.value});
-		} else if (event.target.name === "deadline") {
-			this.setState({deadline: event.target.value});
-		} else if (event.target.name === "created") {
-			this.setState({created: event.target.value});
-		}
+		const { name, value } = event.target;
+    this.setState({
+        newTodo: Object.assign({}, this.state.newTodo, {
+        [name]: value
+        })
+    });
 	}
-	
+
+	// hacer un loop y hacer un solo setState 
 	emptyForm() {
 		this.setState({title: ""});
 		this.setState({description: ""});
@@ -36,10 +36,10 @@ class Form extends React.Component  {
   handleSubmit(event) {
 		event.preventDefault();
 		this.props.newTask({
-			title: this.state.title, 
-			description: this.state.description, 
-			deadline: this.state.deadline, 
-			created: this.state.created
+			title: this.state.newTodo.title, 
+			description: this.state.newTodo.description, 
+			deadline: this.state.newTodo.deadline, 
+			created: this.state.newTodo.created
 		});
 		this.props.renderModal(() => this.emptyForm.bind(this));
   }
@@ -59,7 +59,7 @@ class Form extends React.Component  {
 					</div>
 					<div className="form__item form__created">
 						<label>Time:</label>
-						<input type="date" value={this.state.created} name="created" onChange={this.handleChange}/>
+						<input type="time" value={this.state.created} name="created" onChange={this.handleChange}/>
 					</div>
 					<div className="form__item form__description">
 						<label>Task Description:</label>

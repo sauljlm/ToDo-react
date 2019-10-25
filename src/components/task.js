@@ -2,6 +2,7 @@ import React from 'react';
 import Title from './title';
 import Paragraph from './paragraph';
 
+// hacer esto en una clase
 class Task extends React.Component  {
 	constructor(props) {
 		super(props);
